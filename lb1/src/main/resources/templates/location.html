@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Ort</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.0/darkly/bootstrap.min.css" rel="stylesheet" integrity="sha384-Bo21yfmmZuXwcN/9vKrA5jPUMhr7znVBBeLxT9MA4r2BchhusfJ6+n8TLGUcRAtL" crossorigin="anonymous">
+    <link rel="shortcut icon" type="image/x-icon" href="https://www.metaweather.com/static/img/weather/ico/s.ico">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style="cursor: pointer" onclick="history.back(-1)">Zurück</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/quellen">Quellen</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="container my-5">
+            <h1>Suchergebnisse</h1>
+            <h4 class="alert alert-dismissible alert-danger" th:if="${#lists.isEmpty(titel)}">Es gibt keinen Ort mit diesem Namen</h4>
+            <div class="border border-primary border-info" th:if="${not #lists.isEmpty(titel)}">
+
+
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th> Ort </th>
+                            <th> Link</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="table-dark" th:each="location : ${titel}">
+                            <td><span th:text="${location.getTitel()}"> Title </span></td>
+                            <td>
+                                <a th:href="@{/wetter?woeid={id}(id=${location.getWoeid()})}" class="btn btn-primary"><img src="https://www.metaweather.com/static/img/weather/s.svg" width="35" height="35"></img>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

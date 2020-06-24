@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Index</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.0/darkly/bootstrap.min.css" rel="stylesheet" integrity="sha384-Bo21yfmmZuXwcN/9vKrA5jPUMhr7znVBBeLxT9MA4r2BchhusfJ6+n8TLGUcRAtL" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link rel="shortcut icon" type="image/x-icon" href="https://www.metaweather.com/static/img/weather/ico/s.ico">
+</head>
+
+<body>
+    <div class="container my-2">
+        <div class="card">
+            <div class="card-body">
+                <h1>Geben Sie eine Stadt an</h1>
+            </div>
+            <form th:action="@{/location}">
+                <div class="form-group">
+                    <input required type="text" th:name="ort" class="form-control" placeholder="z.B. Zurich">
+                </div>
+                <button type="submit" class="btn btn-primary btn-lg btn-block border border-primary border-info">Weiter</button>
+            </form>
+
+        </div>
+    </div>
+</body>
+
+</html>

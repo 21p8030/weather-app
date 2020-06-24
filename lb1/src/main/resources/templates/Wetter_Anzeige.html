@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Wetter-Vorhersage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.0/darkly/bootstrap.min.css" rel="stylesheet" integrity="sha384-Bo21yfmmZuXwcN/9vKrA5jPUMhr7znVBBeLxT9MA4r2BchhusfJ6+n8TLGUcRAtL" crossorigin="anonymous">
+    <link rel="shortcut icon" type="image/x-icon" th:href="@{${'https://www.metaweather.com/static/img/weather/ico/' + wetter[0].getWeather_state_abbr() + '.ico'}}">
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style="cursor: pointer" onclick="history.back(-1)">Zurück</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/quellen">Quellen</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-10">
+                <h1 th:text="${info.getTitle()} "></h1>
+                <h4 th:text="${infoparent.getTitle()} "></h4>
+
+            </div>
+            <div class="col-md-2">
+                <div style="text-align:right;" th:text="${info.getTime()} "></div>
+                <div style="text-align:right;" th:text="${info.getSun_rise()} "></div>
+                <div style="text-align:right;" th:text="${info.getSun_set()} "></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 border border-primary border-info">
+                <h4 th:text="${wetter[0].getApplicable_date()}"></h4>
+                <div>
+                    <img th:src="@{${'https://www.metaweather.com/static/img/weather/png/64/' + wetter[0].getWeather_state_abbr() + '.png'}}" title="TODO" />
+                    <p th:text="${wetter[0].getWeather_state_name()} "></p>
+                </div>
+                <div>
+                    <h5>Temperaturen:</h5>
+                    <div th:text="${wetter[0].getThe_temp()} "></div>
+                    <div th:text="${wetter[0].getMax_temp()} "></div>
+                    <div th:text="${wetter[0].getMin_temp()} "></div><br>
+                </div>
+                <div>
+                    <h5>Wind</h5>
+                    <div th:text="${wetter[0].getWind_direction_compass()} "></div>
+                    <div th:text="${wetter[0].getWind_speed()} "></div><br>
+                </div>
+                <div>
+                    <h5>Allgemeine Informationen</h5>
+                    <div th:text="${wetter[0].getAir_pressure()} "></div>
+                    <div th:text="${wetter[0].getHumidity()} "></div>
+                    <div th:text="${wetter[0].getVisibility()} "></div><br>
+                </div>
+                <div>
+                    <div th:text="${wetter[0].getPredictability()} "></div>
+                </div>
+            </div>
+            <div class="col-md-2 border border-primary border-warning ">
+                <h4 th:text="${wetter[1].getApplicable_date()}"></h4>
+                <div>
+                    <img th:src="@{${'https://www.metaweather.com/static/img/weather/png/64/' + wetter[1].getWeather_state_abbr() + '.png'}}" title="TODO" />
+                    <p th:text="${wetter[1].getWeather_state_name()} "></p>
+                </div>
+                <div>
+                    <h5>Temperaturen:</h5>
+                    <div th:text="${wetter[1].getThe_temp()} "></div>
+                    <div th:text="${wetter[1].getMax_temp()} "></div>
+                    <div th:text="${wetter[1].getMin_temp()} "></div><br>
+                </div>
+                <div>
+                    <h5>Wind</h5>
+                    <div th:text="${wetter[1].getWind_direction_compass()} "></div>
+                    <div th:text="${wetter[1].getWind_speed()} "></div><br>
+                </div>
+                <div>
+                    <h5>Allgemeine Informationen</h5>
+                    <div th:text="${wetter[1].getAir_pressure()} "></div>
+                    <div th:text="${wetter[1].getHumidity()} "></div>
+                    <div th:text="${wetter[1].getVisibility()} "></div><br>
+                </div>
+                <div>
+                    <div th:text="${wetter[1].getPredictability()} "></div>
+                </div>
+            </div>
+            <div class="col-md-2 border border-primary border-danger ">
+                <h4 th:text="${wetter[2].getApplicable_date()}"></h4>
+                <div>
+                    <img th:src="@{${'https://www.metaweather.com/static/img/weather/png/64/' + wetter[2].getWeather_state_abbr() + '.png'}}" title="TODO" />
+                    <p th:text="${wetter[2].getWeather_state_name()} "></p>
+                </div>
+                <div>
+                    <h5>Temperaturen:</h5>
+                    <div th:text="${wetter[2].getThe_temp()} "></div>
+                    <div th:text="${wetter[2].getMax_temp()} "></div>
+                    <div th:text="${wetter[2].getMin_temp()} "></div><br>
+                </div>
+                <div>
+                    <h5>Wind</h5>
+                    <div th:text="${wetter[2].getWind_direction_compass()} "></div>
+                    <div th:text="${wetter[2].getWind_speed()} "></div><br>
+                </div>
+                <div>
+                    <h5>Allgemeine Informationen</h5>
+                    <div th:text="${wetter[2].getAir_pressure()} "></div>
+                    <div th:text="${wetter[2].getHumidity()} "></div>
+                    <div th:text="${wetter[2].getVisibility()} "></div><br>
+                </div>
+                <div>
+                    <div th:text="${wetter[2].getPredictability()} "></div>
+                </div>
+            </div>
+            <div class="col-md-2 border border-primary border-success ">
+                <h4 th:text="${wetter[3].getApplicable_date()}"></h4>
+                <div>
+                    <img th:src="@{${'https://www.metaweather.com/static/img/weather/png/64/' + wetter[3].getWeather_state_abbr() + '.png'}}" title="TODO" />
+                    <p th:text="${wetter[3].getWeather_state_name()} "></p>
+                </div>
+                <div>
+                    <h5>Temperaturen:</h5>
+                    <div th:text="${wetter[3].getThe_temp()} "></div>
+                    <div th:text="${wetter[3].getMax_temp()} "></div>
+                    <div th:text="${wetter[3].getMin_temp()} "></div><br>
+                </div>
+                <div>
+                    <h5>Wind</h5>
+                    <div th:text="${wetter[3].getWind_direction_compass()} "></div>
+                    <div th:text="${wetter[3].getWind_speed()} "></div><br>
+                </div>
+                <div>
+                    <h5>Allgemeine Informationen</h5>
+                    <div th:text="${wetter[3].getAir_pressure()} "></div>
+                    <div th:text="${wetter[3].getHumidity()} "></div>
+                    <div th:text="${wetter[3].getVisibility()} "></div><br>
+                </div>
+                <div>
+                    <div th:text="${wetter[3].getPredictability()} "></div>
+                </div>
+            </div>
+            <div class="col-md-2 border border-primary border-light ">
+                <h4 th:text="${wetter[4].getApplicable_date()}"></h4>
+                <div>
+                    <img th:src="@{${'https://www.metaweather.com/static/img/weather/png/64/' + wetter[4].getWeather_state_abbr() + '.png'}}" title="TODO" />
+                    <p th:text="${wetter[4].getWeather_state_name()} "></p>
+                </div>
+                <div>
+                    <h5>Temperaturen:</h5>
+                    <div th:text="${wetter[4].getThe_temp()} "></div>
+                    <div th:text="${wetter[4].getMax_temp()} "></div>
+                    <div th:text="${wetter[4].getMin_temp()} "></div><br>
+                </div>
+                <div>
+                    <h5>Wind</h5>
+                    <div th:text="${wetter[4].getWind_direction_compass()} "></div>
+                    <div th:text="${wetter[4].getWind_speed()} "></div><br>
+                </div>
+                <div>
+                    <h5>Allgemeine Informationen</h5>
+                    <div th:text="${wetter[4].getAir_pressure()} "></div>
+                    <div th:text="${wetter[4].getHumidity()} "></div>
+                    <div th:text="${wetter[4].getVisibility()} "></div><br>
+                </div>
+                <div>
+                    <div th:text="${wetter[4].getPredictability()} "></div>
+                </div>
+            </div>
+            <div class="col-md-2 border border-primary border-primary ">
+                <h4 th:text="${wetter[5].getApplicable_date()}"></h4>
+                <div>
+                    <img th:src="@{${'https://www.metaweather.com/static/img/weather/png/64/' + wetter[5].getWeather_state_abbr() + '.png'}}" title="TODO" />
+                    <p th:text="${wetter[5].getWeather_state_name()} "></p>
+                </div>
+                <div>
+                    <h5>Temperaturen:</h5>
+                    <div th:text="${wetter[5].getThe_temp()} "></div>
+                    <div th:text="${wetter[5].getMax_temp()} "></div>
+                    <div th:text="${wetter[5].getMin_temp()} "></div><br>
+                </div>
+                <div>
+                    <h5>Wind</h5>
+                    <div th:text="${wetter[5].getWind_direction_compass()} "></div>
+                    <div th:text="${wetter[5].getWind_speed()} "></div><br>
+                </div>
+                <div>
+                    <h5>Allgemeine Informationen</h5>
+                    <div th:text="${wetter[5].getAir_pressure()} "></div>
+                    <div th:text="${wetter[5].getHumidity()} "></div>
+                    <div th:text="${wetter[5].getVisibility()} "></div><br>
+                </div>
+                <div>
+                    <div th:text="${wetter[5].getPredictability()} "></div>
+                </div>
+            </div>
+            </d>
+        </div>
+</body>
+
+</html>
